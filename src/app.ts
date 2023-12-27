@@ -7,9 +7,11 @@ import middlewares from './middlewares.ts'
 const app = new Hono().basePath('/v1')
 
 app.use('*', compress())
+
 if (Deno.env.get('ENV') !== 'test') {
   app.use('*', logger(customLogger))
 }
+
 app.use('*', secureHeaders())
 
 app.get('/', (c) =>
