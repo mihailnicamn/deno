@@ -1,0 +1,19 @@
+{
+  "imports": {
+    "hono": "https://deno.land/x/hono@v3.11.11/mod.ts",
+    "hono/middlewares": "https://deno.land/x/hono@v3.11.11/middleware.ts",
+    "asserts": "https://deno.land/std@0.210.0/assert/mod.ts"
+  },
+  "fmt": {
+    "singleQuote": true,
+    "semiColons": false,
+    "include": [
+      "src/",
+      "test/"
+    ]
+  },
+  "tasks": {
+    "test": "ENV=test deno test --allow-env",
+    "dev": "deno run --allow-net --allow-env --watch src/index.ts"
+  }
+}
