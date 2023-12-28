@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-import { compress, logger, secureHeaders } from 'hono/middlewares'
+import { compress, cors, logger, secureHeaders } from 'hono/middlewares'
 import api from './api/index.ts'
 import { customLogger } from './logger.ts'
 import middlewares from './middlewares.ts'
@@ -7,6 +7,7 @@ import middlewares from './middlewares.ts'
 const app = new Hono().basePath('/v1')
 
 app.use('*', compress())
+app.use('*', cors())
 
 if (Deno.env.get('ENV') !== 'test') {
   app.use('*', logger(customLogger))
