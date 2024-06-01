@@ -14,6 +14,14 @@
   },
   "tasks": {
     "test": "ENV=test deno test --allow-env",
-    "dev": "deno run --allow-net --allow-env --watch src/index.ts"
+    "dev": "deno run -A --watch --unstable --unstable-kv src/index.ts"
+  },
+  "deploy": {
+    "project": "6a1886fa-250d-4cd6-b94e-e6ab12b13f16",
+    "exclude": [
+      "**/node_modules"
+    ],
+    "include": [],
+    "entrypoint": "src/index.ts"
   }
 }
